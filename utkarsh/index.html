@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, My Love! ❤️</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;600&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background Music Audio Elements -->
+    <audio id="audio-page1" loop>
+      <source
+        src="Tu Hi Disda - From _Bhooth Bangla__spotdown.org.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="audio-page2" loop>
+      <source
+        src="Phir Aur Kya Chahiye (From _Zara Hatke Zara Bachke_)_spotdown.org.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <!-- Global Floating Music Controller -->
+    <div id="music-controller" class="hidden">
+      <button id="mute-btn" title="Toggle Music">
+        <i class="fas fa-volume-up"></i>
+      </button>
+      <span id="now-playing">Playing: Song 1</span>
+    </div>
+
+    <!-- Background Canvas for Falling Cherry Blossoms / Sparkles -->
+    <canvas id="petal-canvas"></canvas>
+
+    <!-- Welcome / Unlock Screen -->
+    <section id="intro-screen" class="active-screen">
+      <div class="intro-card">
+        <div class="heart-pulse-container">
+          <div class="heart-ring animate-ring"></div>
+          <div class="heart-main">❤️</div>
+        </div>
+        <h1 class="romantic-title font-cursive animate-slide-up">
+          For Someone Very Special...
+        </h1>
+        <p class="intro-subtext animate-slide-up-delay-1">
+          Aaj tumhaara sabse khaas din hai. Open output to see the magic...
+        </p>
+        <button id="btn-unlock" class="glow-button animate-slide-up-delay-2">
+          Open The Surprise 🌸
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Wish & Her Image -->
+    <section id="page1" class="screen hidden-screen">
+      <div class="container page-content">
+        <div class="flower-header">
+          <span class="cherry-icon">🌸</span>
+          <span class="cherry-icon">✨</span>
+          <span class="cherry-icon">🌸</span>
+        </div>
+        <h1 class="page-title font-cursive animate-text">
+          Happy Birthday, Jaan!
+        </h1>
+
+        <div class="main-layout">
+          <!-- Image Container with ornate frame -->
+          <div class="image-frame-wrapper container-item">
+            <div class="gold-frame animate-float">
+              <div class="frame-content">
+                <!-- Image path is girl.jpg. If missing, CSS placeholder is shown -->
+                <img
+                  src="2.jpeg"
+                  alt="The Birthday Handsam"
+                  onerror="
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'flex';
+                  "
+                  class="user-img"
+                />
+                <div class="img-placeholder" style="display: none">
+                  <i class="fas fa-heart"></i>
+                  <span>Put girl.jpg here 🌸</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Wishes Container -->
+          <div class="wish-card container-item animate-fade-in-right">
+            <p class="wish-message">
+              Tumhari muskaan is duniya ki sabse pyari cheez hai. Allah kare ki
+              tumhari zindagi khushiyon se aur dher saare pyaar se bhari rahe.
+              Tumhare is janamdin par main bas yahi chahti hoon ki tum hamesha
+              muskuraata raho aur jo chaho woh sab tumhe mile. ✨
+            </p>
+            <p class="wish-message-italic font-cursive">
+              "Tum mere dil ki dhadkan ho, aur tumhari khushi hi meri duniya..."
+            </p>
+            <button class="nav-btn next-btn" id="btn-to-page2">
+              Our Story & Gift 💖 <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Couple Image & Secret Letter/Gift -->
+    <section id="page2" class="screen hidden-screen">
+      <div class="container page-content">
+        <h1 class="page-title font-cursive animate-text">Happy Birthday 💑</h1>
+
+        <div class="main-layout">
+          <!-- Couple polaroid frames -->
+          <div class="polaroid-wrapper container-item">
+            <div class="polaroid-card tilt-left animate-float">
+              <div class="polaroid-img-box">
+                <img
+                  src="3.jpeg"
+                  alt="Our Journey"
+                  onerror="
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'flex';
+                  "
+                  class="user-img"
+                />
+                <div class="img-placeholder" style="display: none">
+                  <i class="fas fa-heart"></i>
+                  <span>Put couple.jpg here 💖</span>
+                </div>
+              </div>
+              <div class="polaroid-caption font-cursive">
+                Hamesha tumhaare saath...
+              </div>
+            </div>
+          </div>
+
+          <!-- Envelope / Secret Gift Section -->
+          <div class="gift-section container-item">
+            <div class="gift-instruction">
+              Tap below to open your secret letter! 💌
+            </div>
+
+            <!-- Envelope Container -->
+            <div class="envelope-container" id="envelope-trigger">
+              <div class="envelope">
+                <div class="envelope-back"></div>
+                <div class="letter-preview">
+                  <div class="letter-line"></div>
+                  <div class="letter-line"></div>
+                  <div class="letter-line"></div>
+                </div>
+                <div class="envelope-front"></div>
+                <div class="envelope-top"></div>
+                <div class="heart-lock">
+                  <i class="fas fa-heart"></i>
+                </div>
+              </div>
+              <div class="glow-shadow"></div>
+            </div>
+
+            <div class="page2-nav-buttons">
+              <button class="nav-btn prev-btn" id="btn-to-page1">
+                <i class="fas fa-arrow-left"></i> Back to Wish
+              </button>
+              <button class="nav-btn next-btn" id="btn-to-page3">
+                Our Memories 📸 <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secret Letter Overlay Modal -->
+      <div id="letter-modal" class="modal-overlay hidden">
+        <div class="letter-modal-content">
+          <button class="close-modal" id="btn-close-letter">&times;</button>
+          <div class="scroll-letter font-cursive">
+            <h2 class="letter-heading font-cursive">My Heartbeat,</h2>
+
+            <p class="letter-paragraph">
+              Yeh chota sa khat sirf tumhaare liye hai. Jab se tum meri zindagi
+              mein aaya ho, sab kuch badal gaya hai. Har din tumhaare baare mein
+              sochna aur tumhaara baaton ko yaad karke muskurana ab meri aadat
+              ban chuki hai.
+            </p>
+
+            <p class="letter-paragraph">
+              Main har lamha tumhaare sath jeena chahti hoon. Tumhari aakhein,
+              tumhari hansi, tumhara gussa... sabse mohabbat hai mujhe. Tumhaare
+              bina meri zindagi adhuri hai. Is pyaare se din par, main tumse
+              wada karti hoon ki main hamesha har mod par tumhara sath nibhaungi
+              aur dher saara pyar doongi.
+            </p>
+
+            <p class="letter-paragraph">
+              Janmadin ki bohot bohot mubarakbaad. Tum meri zindagi ka sabse
+              anmol tohfa ho. Hamesha muskuraata raho, meri jaan! ❤️
+            </p>
+
+            <div class="letter-signature">
+              Hamesha Tumhaara, <br />
+              <span class="signature-name">Your Lover 💖</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Hanging Photos & Wishes -->
+    <section id="page3" class="screen hidden-screen">
+      <div class="container page-content">
+        <h1 class="page-title font-cursive animate-text">
+          Our Sweet Memories 💖
+        </h1>
+
+        <!-- Clothesline String Container -->
+        <div class="clothesline-container">
+          <div class="string-line"></div>
+          <div class="hanging-photos-list">
+            <!-- Photo 1 -->
+            <div class="hanging-photo-item photo-1">
+              <div class="peg"></div>
+              <div class="hanging-polaroid">
+                <div class="polaroid-img-box-small">
+                  <img
+                    src="1.jpeg"
+                    alt="Memory 1"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                    class="user-img-small"
+                  />
+                  <div class="img-placeholder-small">
+                    <i class="fas fa-heart"></i>
+                  </div>
+                </div>
+                <div class="polaroid-caption-small font-cursive">You & Me</div>
+              </div>
+            </div>
+            <!-- Photo 2 -->
+            <div class="hanging-photo-item photo-2">
+              <div class="peg"></div>
+              <div class="hanging-polaroid">
+                <div class="polaroid-img-box-small">
+                  <img
+                    src="2.jpeg"
+                    alt="Memory 2"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                    class="user-img-small"
+                  />
+                  <div class="img-placeholder-small">
+                    <i class="fas fa-heart"></i>
+                  </div>
+                </div>
+                <div class="polaroid-caption-small font-cursive">
+                  Beautiful Day
+                </div>
+              </div>
+            </div>
+            <!-- Photo 3 -->
+            <div class="hanging-photo-item photo-3">
+              <div class="peg"></div>
+              <div class="hanging-polaroid">
+                <div class="polaroid-img-box-small">
+                  <img
+                    src="3.jpeg"
+                    alt="Memory 3"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                    class="user-img-small"
+                  />
+                  <div class="img-placeholder-small">
+                    <i class="fas fa-heart"></i>
+                  </div>
+                </div>
+                <div class="polaroid-caption-small font-cursive">
+                  Happy Together
+                </div>
+              </div>
+            </div>
+            <!-- Photo 4 -->
+            <div class="hanging-photo-item photo-4">
+              <div class="peg"></div>
+              <div class="hanging-polaroid">
+                <div class="polaroid-img-box-small">
+                  <img
+                    src="WhatsApp Image 2026-07-09 at 4.22.25 AM.jpeg"
+                    alt="Memory 4"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                    class="user-img-small"
+                  />
+                  <div class="img-placeholder-small">
+                    <i class="fas fa-heart"></i>
+                  </div>
+                </div>
+                <div class="polaroid-caption-small font-cursive">
+                  Love Always
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 3 Wishes Box -->
+        <div class="wishes-box-page3">
+          <h2 class="wishes-heading font-cursive">
+            Dher Saara Pyaar Aur Duayein ✨
+          </h2>
+          <p class="wishes-text-page3">
+            Tumhaare sath bitaya har ek lamha mere liye sabse bada tohfa hai.
+            Main chahti hoon ki hum hamesha aise hi khush rahein, ek doosre ka
+            hath thame muskurate rahein. Allah kare ki tumhara ye saal sapno ko
+            sach karne wala ho. Happy Birthday once again, my SweetHeart! ❤️
+          </p>
+          <div class="page3-nav-buttons">
+            <button class="nav-btn prev-btn" id="btn-page3-to-page2">
+              <i class="fas fa-arrow-left"></i> Secret Letter
+            </button>
+            <button class="nav-btn next-btn" id="btn-page3-to-page1">
+              Restart 🌸 <i class="fas fa-redo"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom JS script -->
+    <script src="script.js"></script>
+  </body>
+</html>
